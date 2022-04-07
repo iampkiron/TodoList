@@ -1,0 +1,22 @@
+ul {
+  padding: 0;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item__desc {
+  flex-grow: 8;
+}
+
+.item__opt {
+}
+
+.opt__clear {
+  cursor: pointer;
+}
+
+.item__desc.clear {
+  text-decoration: line-through;
+}
