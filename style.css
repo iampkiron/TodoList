@@ -21,6 +21,9 @@ h1 {
   margin-bottom: 0.5em;
   color: #fff;
 }
+.inputText::placeholder {
+  color: #eee;
+}
 .inputText {
   position: absolute;
   width: 100%;

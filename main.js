@@ -41,9 +41,9 @@ addButton.addEventListener("click", (e) => {
     const target = e.target.parentNode.previousSibling;
 
     const text =
-      target.innerText === "check_circle"
-        ? (target.innerText = "check")
-        : (target.innerText = "check_circle");
+      e.target.innerText === "check_circle"
+        ? (e.target.innerText = "check")
+        : (e.target.innerText = "check_circle");
 
     const checkIcon = e.target.classList.contains("doneIcon")
       ? e.target.classList.remove("doneIcon")
