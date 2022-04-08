@@ -6,17 +6,14 @@ ul {
   align-items: center;
 }
 
-.item__desc {
+.text {
   flex-grow: 8;
 }
 
-.item__opt {
-}
-
-.opt__clear {
+.clearIcon {
   cursor: pointer;
 }
 
-.item__desc.clear {
+.clearIcon.clear {
   text-decoration: line-through;
 }

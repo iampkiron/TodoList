@@ -1,64 +1,70 @@
-const inputbtn = document.querySelector(".inputBtn");
+const addButton = document.querySelector(".inputBtn");
 const inputText = document.querySelector(".inputText");
 const list = document.querySelector(".list");
 
-// addTodo
-inputbtn.addEventListener("click", (e) => {
+addButton.addEventListener("click", (e) => {
   e.preventDefault();
-  const text = inputText.value;
-  // listForm
-  const item = document.createElement("li");
-  item.classList.add("item");
-  list.appendChild(item);
-
-  const favIcon = document.createElement("span");
-  favIcon.classList.add("material-icons");
-  favIcon.innerText = "favorite_border";
-  item.appendChild(favIcon);
-
-  const p = document.createElement("p");
-  p.classList.add("item__desc");
-  p.innerText = text;
-  item.appendChild(p);
-
-  const div = document.createElement("div");
-  div.classList.add("item__opt");
-  item.appendChild(div);
-  const clearIcon = document.createElement("span");
-  clearIcon.classList.add("material-icons");
-  clearIcon.classList.add("opt__clear");
-  clearIcon.innerText = "check_circle";
-  div.appendChild(clearIcon);
-  const delIcon = document.createElement("span");
-  delIcon.classList.add("material-icons");
-  delIcon.classList.add("opt__del");
-  delIcon.innerText = "delete";
-  div.appendChild(delIcon);
-});
-
-//favTodo
-
-//clearTodo
-// let optClear = document.querySelectorAll(".opt__clear");
-// console.log(optClear);
-// optClear.forEach((el) => {
-//   el.addEventListener("click", (e) => {
-//     const selectlist = e.target.parentNode.parentNode.childNodes[3];
-//     console.log(selectlist);
-//     if (selectlist.classList.contains("clear")) {
-//       selectlist.classList.remove("clear");
-//     } else {
-//       selectlist.classList.add("clear");
-//     }
-//   });
-// });
-
-let optClear = document.querySelector(".opt__clear");
-optClear.addEventListener("click", (e) => {
-  const selectlist = e.target.parentNode.parentNode.childNodes[3];
-  if (selectlist.classList.contains("clear")) {
-    selectlist.classList.remove("clear");
-  } else {
-    selectlist.classList.add("clear");
+  if (inputText.value.trim() === "") {
+    return;
   }
+
+  const li = document.createElement("li");
+  li.classList.add("item");
+  list.appendChild(li);
+
+  // like
+  const like = document.createElement("span");
+  like.classList.add("material-icons");
+  like.innerText = "favorite_border";
+
+  // Text
+  const text = document.createElement("p");
+  text.classList.add("text");
+  text.innerText = inputText.value;
+
+  // Manage
+  const manage = document.createElement("div");
+  const checkIcon = document.createElement("span");
+  const clearIcon = document.createElement("span");
+
+  // Event
+  like.addEventListener("click", (e) => {
+    const target = e.target;
+    const text =
+      target.innerText === "favorite_border"
+        ? (target.innerText = "favorite")
+        : (target.innerText = "favorite_border");
+    target.innerText = text;
+  });
+
+  checkIcon.addEventListener("click", (e) => {
+    const target = e.target.parentNode.previousSibling;
+    const checkIcon =
+      target.style.textDecoration === "line-through"
+        ? (target.style.textDecoration = "")
+        : (target.style.textDecoration = "line-through");
+    target.style.textDecoration = checkIcon;
+  });
+
+  clearIcon.addEventListener("click", (e) => {
+    const target = e.target.parentNode.parentNode;
+    list.removeChild(target);
+  });
+
+  manage.classList.add("manage");
+  checkIcon.classList.add("material-icons");
+  checkIcon.classList.add("clearIcon");
+  clearIcon.classList.add("material-icons");
+  clearIcon.classList.add("checkIcon");
+  checkIcon.innerText = "check_circle";
+  clearIcon.innerText = "delete";
+  manage.appendChild(checkIcon);
+  manage.appendChild(clearIcon);
+
+  li.appendChild(like);
+  li.appendChild(text);
+  li.appendChild(manage);
+
+  inputText.value = "";
+  inputText.focus();
 });
