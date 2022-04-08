@@ -1,19 +1,75 @@
+body {
+  margin: 0;
+}
 ul {
+  margin: 0;
   padding: 0;
 }
-.item {
-  display: flex;
-  align-items: center;
+header {
+  padding: 2em;
+  background: #f95700;
 }
-
-.text {
-  flex-grow: 8;
+form {
+  position: relative;
+  width: 100%;
+  max-width: 372px;
+  height: 32px;
+  margin: 0 auto;
 }
-
-.clearIcon {
+h1 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+.inputText {
+  position: absolute;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: #f95700;
+  color: #fff;
+  font-size: 1.5em;
+  outline: none;
+}
+.inputBtn {
+  position: absolute;
+  right: 0;
+  border: none;
+  color: #fff;
+  background: none;
+  font-size: 1.5em;
   cursor: pointer;
 }
-
-.clearIcon.clear {
+.list {
+  max-width: 376px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+.item {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.like {
+  color: #e9877e;
+}
+.text {
+  flex-grow: 8;
+  margin-left: 1em;
+}
+.clearIcon {
+  cursor: pointer;
+  margin-right: 0.5em;
+  color: #999;
+}
+.checkIcon {
+  color: #333;
+}
+.done {
   text-decoration: line-through;
+  color: #999;
+}
+.doneIcon {
+  color: #9fc131;
 }
