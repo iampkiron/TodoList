@@ -55,8 +55,15 @@ h1 {
   border-bottom: 1px solid #eee;
 }
 .like {
+  cursor: pointer;
   color: #e9877e;
 }
+/* .like::before {
+  content: "favorite_border";
+}
+.like:hover::before {
+  content: "favorite";
+} */
 .text {
   flex-grow: 8;
   margin-left: 1em;
@@ -66,7 +73,11 @@ h1 {
   margin-right: 0.5em;
   color: #999;
 }
+.clearIcon:hover {
+  color: #9fc131;
+}
 .checkIcon {
+  cursor: pointer;
   color: #333;
 }
 .done {

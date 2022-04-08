@@ -60,7 +60,17 @@ addButton.addEventListener("click", (e) => {
 
   clearIcon.addEventListener("click", (e) => {
     const target = e.target.parentNode.parentNode;
-    list.removeChild(target);
+    list.removeChild(removeFadeOut(target, 500));
+
+    function removeFadeOut(el, speed) {
+      let seconds = speed / 1000;
+      el.style.transition = "opacity " + seconds + "s ease";
+
+      el.style.opacity = 0;
+      setTimeout(function () {
+        el.parentNode.removeChild(el);
+      }, speed);
+    }
   });
 
   manage.classList.add("manage");
@@ -69,7 +79,7 @@ addButton.addEventListener("click", (e) => {
   clearIcon.classList.add("material-icons");
   clearIcon.classList.add("checkIcon");
   checkIcon.innerText = "check";
-  clearIcon.innerText = "delete";
+  clearIcon.innerText = "delete_forever";
   manage.appendChild(checkIcon);
   manage.appendChild(clearIcon);
 
